@@ -1,0 +1,38 @@
+/* Posisi alert di kanan atas */
+.alert-box {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 250px;
+    border-left: 5px solid;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Warna untuk pesan sukses */
+.success-alert {
+    border-color: #5cb85c;
+}
+
+/* Warna untuk pesan peringatan */
+.warning-alert {
+    border-color: #d9534f;
+}
+
+/* Ukuran ikon */
+.check-icon {
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+/* Ukuran card lebih kecil */
+.small-card {
+    width: 300px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
