@@ -6,6 +6,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AnggotaController;
 use App\Http\Controllers\BendaharaController;
 use App\Http\Controllers\JenisIuranController;
+use App\Http\Controllers\TagihanIuranController;
 // Route::get('/', function () {
 //     return view('welcome');
 // });
@@ -31,6 +32,8 @@ Route::middleware(['auth','role:admin'])->group(function(){
     Route::get('/admin/jenis_iuran/{id}/edit',[JenisIuranController::class,'edit'])->name('admin.jenis_iuran.edit');
     Route::put('/admin/jenis_iuran/{id}/edit',[JenisIuranController::class,'update'])->name('admin.jenis_iuran.update');
     Route::delete('/admin/jenis_iuran/{id}',[JenisIuranController::class,'destroy'])->name('admin.jenis_iuran.destroy');
+    //tabel tagihan iuran
+    Route::get('/admin/tagihan_iuran',[TagihanIuranController::class,'index'])->name('admin.tagihan_iuran.index');
 });
 // Route::middleware(['auth','role:anggota'])->group(function(){
 //     Route::get('/dashboard',[DashboardController::class,'index'])->name('anggota.dashboard');

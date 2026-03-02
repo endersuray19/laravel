@@ -34,6 +34,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{route('admin.tagihan_iuran.index')}}" class="nav-link">
+                        <i class="fas fa-file-invoice-dollar nav-icon"></i>
+                        <p>
+                        Tagihan Iuran
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="/obatmasuk" class="nav-link">
                         <i class="fas fa-receipt nav-icon"></i>
                         <p>
