@@ -6,7 +6,7 @@
                 <div class="col">
                     <h4>
                         <i class="fas fa-file-invoice-dollar"></i>
-                        Data Tagihan Iurna
+                        Data Tagihan Iuran
                     </h4>
                      <hr>
                 </div>
