@@ -54,7 +54,7 @@
                         <select name="status" id="status" class="form-control">
                             <option default>-- Pilih Status --</option>
                             <option value="lunas">Lunas</option>
-                            <option value="tidak_lunas">Tidak Lunas</option>
+                            <option value="belum_lunas">Belum Lunas</option>
                         </select>
                         </div>
                        

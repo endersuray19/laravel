@@ -42,4 +42,16 @@ class TagihanIuranController extends Controller
 
         return redirect()->route('admin.tagihan_iuran.index');
     }
+    public function edit($id){
+        $tagihan_iuran = TagihanIuran::findOrFail($id);
+        $anggota = Anggota::All();
+        $jenis_iuran = JenisIuran::All();
+        return view('admin.tagihan_iuran.edit',compact('tagihan_iuran','anggota','jenis_iuran'));
+    }
+    public function destroy(Request $request, $id){
+        $tagihan_iuran = TagihanIuran::findOrFail($id);
+        $tagihan_iuran->delete();
+
+        return redirect()->route('admin.tagihan_iuran.index');
+    }
 }
