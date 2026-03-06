@@ -36,7 +36,8 @@ Route::middleware(['auth','role:admin'])->group(function(){
     Route::get('/admin/tagihan_iuran',[TagihanIuranController::class,'index'])->name('admin.tagihan_iuran.index');
     Route::get('/admin/tagihan_iuran/create',[TagihanIuranController::class,'create'])->name('admin.tagihan_iuran.create');
     Route::post('/admin/tagihan_iuran',[TagihanIuranController::class,"store"])->name('admin.tagihan_iuran.store');
-    Route::get('/admin/tagihan_iuran/{id}',[TagihanIuranController::class,"edit"])->name('admin.tagihan_iuran.edit');
+    Route::get('/admin/tagihan_iuran/{id}/edit',[TagihanIuranController::class,"edit"])->name('admin.tagihan_iuran.edit');
+    Route::put('/admin/tagihan_iuran/{id}/edit',[TagihanIuranController::class,"update"])->name('admin.tagihan_iuran.update');
     Route::delete('/admin/tagihan_iuran/{id}',[TagihanIuranController::class,"destroy"])->name('admin.tagihan_iuran.delete');
 });
 // Route::middleware(['auth','role:anggota'])->group(function(){

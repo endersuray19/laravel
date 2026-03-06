@@ -24,6 +24,7 @@ class TagihanIuranController extends Controller
         return view('admin.tagihan_iuran.create',compact('anggota','jenis_iuran'));
     }
     public function store(Request $request){
+       
         $request->validate([
             "anggota_id"=>"required",
             "total_nominal"=>"required|numeric",
@@ -32,6 +33,7 @@ class TagihanIuranController extends Controller
             "jenis_iuran_id"=>"required"
 
         ]);
+
         TagihanIuran::Create([
             "anggota_id"=>$request->anggota_id,
             "total_nominal"=>$request->total_nominal,
@@ -47,6 +49,26 @@ class TagihanIuranController extends Controller
         $anggota = Anggota::All();
         $jenis_iuran = JenisIuran::All();
         return view('admin.tagihan_iuran.edit',compact('tagihan_iuran','anggota','jenis_iuran'));
+    }
+    public function update(Request $request,$id){
+        $tagihan_iuran = TagihanIuran::findOrFail($id);
+        $request->validate([
+            'anggota_id'=>'required',
+            'total_nominal'=>'required',
+            'total_cicilan'=>'required',
+            'status'=>'required',
+            'jenis_iuran_id'=>'required',
+
+        ]);
+        $tagihan_iuran->update([
+            'anggota_id' => $request->anggota_id,
+            'total_nominal'=>$request->total_nominal,
+            'total_cicilan'=>$request->total_cicilan,
+            'status'=>$request->status,
+            'jenis_iuran_id'=>$request->jenis_iuran_id,
+        ]);
+
+        return redirect()->route('admin.tagihan_iuran.index');
     }
     public function destroy(Request $request, $id){
         $tagihan_iuran = TagihanIuran::findOrFail($id);
