@@ -30,17 +30,17 @@
                 </div>
                 <div class="form-group">
                     <label for="total_nominal">Total Nominal</label>
-                    <input type="text" name="total_nominal" class="form-control" value="{{$tagihan_iuran->total_nominal}}">
+                    <input type="text" name="total_nominal" id="nominal" class="form-control" value="{{$tagihan_iuran->total_nominal}}" readonly>
                 </div>
                 <div class="form-group">
                     <label for="total_cicilan">Total Cicilan</label>
-                    <input type="text" name="total_cicilan" class="form-control" value="{{$tagihan_iuran->total_cicilan}}">
+                    <input type="text" name="total_cicilan" id="cicilan" class="form-control" value="{{$tagihan_iuran->total_cicilan}}" readonly>
                 </div>
                 <div class="form-group">
                     <label for="jenis_iuran_id">Jenis Iuran</label>
-                    <select name="jenis_iuran_id" id="jenis_iuran_id" class="form-control">
+                    <select name="jenis_iuran_id" id="simpanan" class="form-control">
                         @foreach($jenis_iuran as $jn)
-                        <option value="{{$jn->id}}" {{$jn->id == $tagihan_iuran->jenis_iuran_id ? 'selected':''}}>{{$jn->nama_iuran}}</option>
+                        <option value="{{$jn->id}}" {{$jn->id == $tagihan_iuran->jenis_iuran_id ? 'selected':''}} data-nominal="{{$jn->nominal}}" data-cicilan="{{$jn->max_cicilan}}">{{$jn->nama_iuran}}</option>
                         @endforeach
                     </select>
                 </div>
@@ -59,4 +59,15 @@
         </div>
     </div>
 </div>
+@push("myscript")
+<script>
+    document.getElementById("simpanan").addEventListener('change',function(){
+        let pilihan = this.options[this.selectedIndex];
+        let nominal = pilihan.getAttribute("data-nominal");
+        let cicilan = pilihan.getAttribute("data-cicilan");
+        document.getElementById("nominal").value = nominal;
+        document.getElementById("cicilan").value = cicilan;
+    });
+</script>
+@endpush
 @endsection
