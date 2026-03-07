@@ -6,7 +6,7 @@
                 <div class="col">
                     <h4>
                         <i class="fas fa-file-invoice-dollar"></i>
-                        Data Tagihan Iurna
+                        Data Tagihan Iuran
                     </h4>
                      <hr>
                 </div>
@@ -69,6 +69,16 @@
                                     @endif
                                 </td>    
                                  <td>{{$item->jenis_iuran?->nama_iuran}}</td>    
+                                 <td>
+                                    <a class="btn btn-warning" href="{{route('admin.tagihan_iuran.edit',$item->id)}}">
+                                        Edit
+                                    </a>
+                                    <form action="{{route('admin.tagihan_iuran.delete',$item->id)}}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
+                                 </td>
                                
                             </tr>
                              @endforeach
