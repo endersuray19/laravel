@@ -63,6 +63,18 @@
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                 </form>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="klikone">
+                    <button class="btn btn-primary" onclick="push()">Klik</button>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" id="pinjaman">
+                    <select name="" id="simpanan">
+                        <option value="wajib" data-value="10000">Simpanan wajib</option>
+                        <option value="pokok" data-value="50000">Simpanan pokok</option>
+                    </select>
+
+                </div>
             </div>
         </div>
     </div>
@@ -71,7 +83,16 @@
 
 @push('myscript')
 <script>
-        
+        document.getElementById("simpanan").addEventListener('change',function(){
+            let option = this.options[this.selectedIndex];
+            let simpanan = option.getAttribute("data-value");
+            document.getElementById("pinjaman").value = simpanan;
+            
+        });
+        function push(){
+             let angka = document.getElementById("klikone");
+            angka.value = 10000;
+        }
         $(document).ready(function(){
               $("#jenis_iuran_id").on('change',function(){
 
@@ -93,7 +114,7 @@
                     allowClear:true
                 });
             });
-      
+        
     </script>
     @endpush
 @endsection
